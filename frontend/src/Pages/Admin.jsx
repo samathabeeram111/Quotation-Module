@@ -10,10 +10,10 @@ import {
 } from '@ant-design/icons';
 import Notification from './AdminComponents/Notification';
 import { Navigate, Outlet, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
-import Footer from '../Components/Footer';
-import Navbar from '../Components/Navbar';
-import RequireRole from '../Components/RequireRole';
-import Sidebar from '../Components/sidebar';
+import Footer from '../components/Footer.jsx';
+import Navbar from '../components/Navbar.jsx';
+import RequireRole from '../components/RequireRole.jsx';
+import Sidebar from '../components/sidebar.jsx';
 import Dashboard from './AdminComponents/Dashboard';
 import Activities from './AdminComponents/Activities';
 import Configuration from './AdminComponents/Configuration';

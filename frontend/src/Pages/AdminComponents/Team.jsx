@@ -6,8 +6,8 @@ import {
   PlusOutlined, DeleteOutlined, EditOutlined, CheckOutlined, CloseOutlined,
 } from '@ant-design/icons';
 import { api, getApiErrorMessage } from '../../config/auth.js';
-import TableToolbar from '../../Components/TableToolbar';
-import ManageColumnsModal from '../../Components/ManageColumnsModal';
+import TableToolbar from '../../components/TableToolbar';
+import ManageColumnsModal from '../../components/ManageColumnsModal';
 import { configTableScroll, recordMatchesSearch, slNoColumn } from '../../utils/tableHelpers';
 import {
   digitsOnlyPhone,

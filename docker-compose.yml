@@ -1,0 +1,76 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: quotation-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345678
+      POSTGRES_DB: quotation_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - quotation-network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: quotation-backend
+    environment:
+      DATABASE_URL: postgresql+psycopg2://postgres:12345678@host.docker.internal:5432/quotation_db
+      JWT_SECRET_KEY: change-me-to-a-long-random-secret
+      JWT_ALGORITHM: HS256
+      ACCESS_TOKEN_EXPIRE_MINUTES: 30
+      REFRESH_TOKEN_EXPIRE_DAYS: 7
+      FRONTEND_URL: http://localhost
+      CORS_ORIGINS: http://localhost,http://localhost:80,http://frontend
+      API_V1_PREFIX: /api/v1
+      APP_NAME: Quotation Modal
+      APP_ENV: production
+      DEBUG: false
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - quotation-network
+    volumes:
+      - ./backend:/app
+    command: >
+      sh -c "
+        echo 'Waiting for database...' &&
+        sleep 5 &&
+        alembic upgrade head &&
+        uvicorn app.main:app --host 0.0.0.0 --port 8000
+      "
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: quotation-frontend
+    environment:
+      VITE_API_BASE_URL: http://localhost:8000/api/v1
+    ports:
+      - "5179:5176"
+    depends_on:
+      - backend
+    networks:
+      - quotation-network
+
+volumes:
+  postgres_data:
+
+networks:
+  quotation-network:
+    driver: bridge

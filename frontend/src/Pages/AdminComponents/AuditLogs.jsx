@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { Select, Table, message } from 'antd';
 import dayjs from 'dayjs';
 import { api, getApiErrorMessage } from '../../config/auth.js';
-import TableToolbar from '../../Components/TableToolbar';
+import TableToolbar from '../../components/TableToolbar.jsx';
 import { configTableScroll, recordMatchesSearch, slNoColumn } from '../../utils/tableHelpers';
 
 const FILTERS = [

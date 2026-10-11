@@ -9,10 +9,10 @@ import {
 } from '@ant-design/icons';
 import { api, getApiErrorMessage } from '../../config/auth.js';
 import { useAuth } from '../../config/AuthContext.jsx';
-import TableToolbar from '../../Components/TableToolbar';
-import ManageColumnsModal from '../../Components/ManageColumnsModal';
-import BulkUploadModal from '../../Components/BulkUploadModal';
-import BulkReviewModal from '../../Components/BulkReviewModal';
+import TableToolbar from '../../components/TableToolbar.jsx';
+import ManageColumnsModal from '../../components/ManageColumnsModal.jsx';
+import BulkUploadModal from '../../components/BulkUploadModal.jsx';
+import BulkReviewModal from '../../components/BulkReviewModal.jsx';
 import { activitiesTableScroll, slNoColumn, recordMatchesSearch } from '../../utils/tableHelpers';
 import { datedFilename, downloadReportExcel, downloadReportPdf } from '../../utils/spreadsheet';
 import {

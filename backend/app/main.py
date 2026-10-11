@@ -55,7 +55,10 @@ register_exception_handlers(app)
 # In DEBUG, also allow LAN/localhost Vite origins (e.g. http://172.18.7.89:5176).
 # Starlette returns 400 on OPTIONS when Origin is not allowed.
 _cors_kwargs = {
-    "allow_origins": settings.cors_origin_list,
+   "allow_origins": [
+    *settings.cors_origin_list,
+    "http://localhost:5179",
+],
     "allow_credentials": True,
     "allow_methods": ["*"],
     "allow_headers": ["*"],

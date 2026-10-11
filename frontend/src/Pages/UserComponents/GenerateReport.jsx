@@ -8,7 +8,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import { templateForQuotation } from '../../utils/templateSnapshot.js';
 import dayjs from 'dayjs';
 import { api, getApiErrorMessage } from '../../config/auth.js';
-import { DynamicFormField } from '../../Components/DynamicFormField';
+import { DynamicFormField } from '../../components/DynamicFormField';
 import { DEFAULT_REPORT_HEADER_FIELDS } from '../../utils/reportFormSchema.js';
 import { resolveTemplateExtraFields } from '../../utils/reportPlaceholders.js';
 import {
@@ -16,7 +16,7 @@ import {
   phoneFieldRules,
   phoneInputProps,
 } from '../../utils/phoneValidation.js';
-import QuotationPdfPreviewModal from '../../Components/QuotationPdfPreviewModal.jsx';
+import QuotationPdfPreviewModal from '../../components/QuotationPdfPreviewModal.jsx';
 import useQuotationPdfPreview from '../../hooks/useQuotationPdfPreview.js';
 
 const UNIT_OPTIONS = ['Nos', 'Set', 'Each', 'Parameter', 'Hour', 'Day'];

@@ -8,10 +8,10 @@ import {
   UnorderedListOutlined,
 } from '@ant-design/icons';
 import { useLocation, useNavigate } from 'react-router-dom';
-import AdminReportActions from '../../Components/AdminReportActions.jsx';
-import ReportReviewModal from '../../Components/ReportReviewModal.jsx';
+import AdminReportActions from '../../components/AdminReportActions.jsx';
+import ReportReviewModal from '../../components/ReportReviewModal.jsx';
 import { templateForQuotation } from '../../utils/templateSnapshot.js';
-import QuotationPdfPreviewModal from '../../Components/QuotationPdfPreviewModal.jsx';
+import QuotationPdfPreviewModal from '../../components/QuotationPdfPreviewModal.jsx';
 import useQuotationPdfPreview from '../../hooks/useQuotationPdfPreview.js';
 import dayjs from 'dayjs';
 import { api, getApiErrorMessage } from '../../config/auth.js';

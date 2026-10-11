@@ -4,7 +4,7 @@ import { PlusOutlined, EditOutlined, SaveOutlined } from '@ant-design/icons';
 import { useSearchParams } from 'react-router-dom';
 import { api, getApiErrorMessage } from '../../config/auth.js';
 import { useAuth } from '../../config/AuthContext.jsx';
-import ManageColumnsModal from '../../Components/ManageColumnsModal';
+import ManageColumnsModal from '../../components/ManageColumnsModal';
 import Team from './Team';
 import AuditLogs from './AuditLogs';
 import Customers from './Customers';
